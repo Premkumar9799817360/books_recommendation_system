@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Recommendation Syetem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<style>
+    body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+    text-align: center;
+    background: darkslateblue;
+    color: white;
+    font-size: 26px;
+}
+
+/* Page Content */
+.content {padding:20px;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 9px 40px;
+  text-decoration: none;
+  font-size: 23px;
+  height: 50px;
+}
+
+/* .topnav a:hover {
+  background-color: darkslateblue;
+  border-radius: 5px;
+  color: black; 
+}
+*/
+/* .topnav a.active {
+  background-color: darkslateblue;
+  color: white;
+} */
+h1{
+  font-size: 35px;
+font-weight: bold;
+font-family: inherit;
+color: white;
+margin-top: 20px;
+text-align: center;
+}
+.mains{
+background-color: darkslateblue;
+}
+#bookname{
+font-size: 25px; 
+font-weight: bold;
+}
+.row{
+margin: 4px -61px;
+}
+
+/* responsive code */
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .container{
+    width: 80%;
+    padding: 0;
+  }
+  .row{
+    margin: 4px -61px;
+  }
+  .card{
+    width: 100%;
+  }
+  h1{
+    font-size: 25px;
+  }
+  #bookname{
+    font-size: 13px;
+  }
+  h4{
+    font-size: 16px;
+  }
+  .col-3{
+    margin: 16px 22px;
+    width: 228px;
+}
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .row{
+    margin: 4px -30px;
+  }
+  .container{
+    width: 80%;
+    padding: 0;
+  }
+  .card{
+    width: 100%;
+  }
+  #bookname{
+    font-size: 12px;
+  }
+  h4{
+    font-size: 13px;
+  }
+  .col-3{
+        margin: 18px 8px;
+    width: 173px;
+  }
+}
+
+
+
+
+
+</style>  
+</head>
+  <body>
+    <div class="header">
+        <h1>Book Recommendation System</h1>
+        <p>This WebApp Suggest Best Book </p>
+      </div>
+      <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/recommend">Recommend Books</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="mains">
+      <div class="container">
+        <div class="row">
+            <div class="col-12" id="toptext">
+                <h1>Top 50 Books</h1>
+            </div>
+          
+            {% for i in range(book_name|length) %}
+            <div class="col-3" style="margin-top:50px;">
+                <div class="card">
+                  <div class="column">
+                    <div class="card-body">
+                        <img src="{{image[i]}}" alt="" class="card-img-top">
+                    <p class="text-black" id="bookname">{{book_name[i]}}</p>
+                    <h4 class="text-black">{{author[i]}}</h4>
+                    <h4 class="text-black">Year - {{year[i]}}</h4>
+                    <h4 class="text-black">Votes - {{votes[i]}}</h4>
+                    <h4 class="text-black">Rating - {{ "%.1f"|format(rating[i]) }}</h4>
+                </div>
+              </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
