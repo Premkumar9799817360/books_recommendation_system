@@ -24,7 +24,7 @@ rich
 scikit-learn
 scipy
 seaborn
-sklearn
 streamlit
+--upgrade pip
 
 
